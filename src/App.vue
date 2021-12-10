@@ -22,19 +22,27 @@
       <div>header</div>
     </template>
     <template #main="mainProps">
-      <div>main
-        <span>{{mainProps.attrs.msg}}</span>
+      <div>
+        main
+        <span>{{ mainProps.attrs.msg }}</span>
       </div>
     </template>
     <template #footer>
-      <div>
-        footer
-      </div>
+      <div>footer</div>
     </template>
   </ContextDemo>
+  <hr />
+  <LifeCyclesDemo
+    v-if="flag"
+    :msg="watchEffectMsg"
+    @onHandleChangeWatchEffectMsg="handleChangeWatchEffectMsg"
+  />
+  <br />
+  <button @click="flag = !flag">切换 flag</button>
 </template>
 
 <script lang="ts">
+import { defineComponent } from "vue";
 import HelloWorld from "./components/HelloWorld.vue";
 import ProxyDemo from "./components/ProxyDemo.vue";
 import EffectDemo from "./components/EffectDemo.vue";
@@ -42,13 +50,14 @@ import WatchEffectDemo from "./components/WatchEffectDemo.vue";
 import WatchDemo from "./components/WatchDemo.vue";
 import HooksDemo from "./components/HooksDemo.vue";
 import ContextDemo from "./components/ContextDemo.vue";
+import LifeCyclesDemo from "./components/LifeCyclesDemo.vue";
 
-import { defineComponent } from "vue";
 export default defineComponent({
   name: "App",
   data() {
     return {
       watchEffectMsg: "hello, watchEffect!",
+      flag: true,
     };
   },
   methods: {
@@ -64,6 +73,7 @@ export default defineComponent({
     WatchDemo,
     HooksDemo,
     ContextDemo,
+    LifeCyclesDemo,
   },
 });
 </script>

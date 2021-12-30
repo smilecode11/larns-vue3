@@ -39,6 +39,8 @@
   />
   <br />
   <button @click="flag = !flag">切换 flag</button>
+  <hr />
+  <ComputedDemo />
 </template>
 
 <script lang="ts">
@@ -51,6 +53,7 @@ import WatchDemo from "./components/WatchDemo.vue";
 import HooksDemo from "./components/HooksDemo.vue";
 import ContextDemo from "./components/ContextDemo.vue";
 import LifeCyclesDemo from "./components/LifeCyclesDemo.vue";
+import ComputedDemo from "./components/ComputedDemo.vue";
 
 export default defineComponent({
   name: "App",
@@ -74,6 +77,7 @@ export default defineComponent({
     HooksDemo,
     ContextDemo,
     LifeCyclesDemo,
+    ComputedDemo,
   },
 });
 </script>
